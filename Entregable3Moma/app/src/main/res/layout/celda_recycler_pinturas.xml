@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="6dp"
+    android:layout_marginTop="12dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/foto_pintura"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/maxresdefault"
+            />
+
+        <View
+            android:id="@+id/nombre_del_autor"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/foto_pintura"
+            android:background="@color/colorPrimaryDark"
+            android:alpha=".7" />
+
+        <TextView
+            android:id="@+id/nombre_de_obra"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/foto_pintura"
+            android:text="@string/titulo_de_la_obra"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/colorBlanco"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:lineSpacingExtra="-4sp"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="5"
+            android:shadowRadius="10"/>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
