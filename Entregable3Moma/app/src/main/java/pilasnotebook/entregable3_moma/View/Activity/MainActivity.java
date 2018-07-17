@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 import java.util.List;
 
@@ -36,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(pinturaAdapter);
         pinturaController = new PinturaController();
         obtenerPinturasView();
+
+
+
+
+
     }
 
     public void marquee(String texto) {

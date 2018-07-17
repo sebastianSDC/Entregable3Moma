@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "996934332868",
+    "firebase_url": "https://entregable3moma.firebaseio.com",
+    "project_id": "entregable3moma",
+    "storage_bucket": "entregable3moma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996934332868:android:827cb3c3ff065fe3",
+        "android_client_info": {
+          "package_name": "pilasnotebook.entregable3_moma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996934332868-lgruhlifqe2lt6mldk9scauvb1ieqedr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pilasnotebook.entregable3_moma",
+            "certificate_hash": "e5e8c28ba326e8bb8afbe6ecd0f35dd495b81f2d"
+          }
+        },
+        {
+          "client_id": "996934332868-uunqgrlvmjuffm189n8dak1ahksuhdcf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUJjgWIQotbi5yS6NaZ-peVfYcFADvbYY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996934332868-uunqgrlvmjuffm189n8dak1ahksuhdcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

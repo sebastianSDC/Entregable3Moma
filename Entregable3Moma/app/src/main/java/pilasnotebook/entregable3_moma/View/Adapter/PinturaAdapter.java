@@ -9,6 +9,8 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,13 +74,13 @@ public class PinturaAdapter extends RecyclerView.Adapter {
         public ViewHolderPintura(View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.nombre_de_obra);
-
             foto_pintura = itemView.findViewById(R.id.foto_pintura);
         }
 
         public void cargarPintura(Pintura pintura) {
             titulo.setText(pintura.getName());
-
+            Glide.with(itemView.getContext()).load(link).into(foto_pintura);
+/// a completar con el storage
 
         }
     }
