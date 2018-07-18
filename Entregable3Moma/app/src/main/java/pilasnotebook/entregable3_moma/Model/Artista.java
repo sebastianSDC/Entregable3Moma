@@ -18,6 +18,9 @@ public class Artista {
         this.influencia = influencia;
     }
 
+    public Artista(){
+    }
+
     public String getArtistId() {
         return artistId;
     }

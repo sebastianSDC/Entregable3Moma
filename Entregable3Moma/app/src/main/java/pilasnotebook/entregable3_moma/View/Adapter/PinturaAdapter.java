@@ -5,11 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +22,19 @@ import pilasnotebook.entregable3_moma.R;
 public class PinturaAdapter extends RecyclerView.Adapter {
 
     private List<Pintura> listadepinturas;
+    NotificadorPinturaCelda notificadorPinturaCelda;
 
-    public PinturaAdapter(List<Pintura> pinturas) {
+    public PinturaAdapter(List<Pintura> pinturas, NotificadorPinturaCelda notificadorPinturaCelda) {
         listadepinturas = pinturas;
+        this.notificadorPinturaCelda = notificadorPinturaCelda;
         if (pinturas == null) {
             listadepinturas = new ArrayList<>();
+
         }
+    }
+
+    public void setNotificadorPinturaCelda(NotificadorPinturaCelda notificadorPinturaCelda) {
+        this.notificadorPinturaCelda = notificadorPinturaCelda;
     }
 
     public PinturaAdapter() {
@@ -55,13 +64,11 @@ public class PinturaAdapter extends RecyclerView.Adapter {
         return listadepinturas.size();
     }
 
-    public void agregarPinturas(List<Pintura> pinturas){
+    public void agregarPinturas(List<Pintura> pinturas) {
         listadepinturas.addAll(pinturas);
 
         notifyDataSetChanged();
     }
-
-
 
 
     public class ViewHolderPintura extends RecyclerView.ViewHolder {
@@ -75,13 +82,29 @@ public class PinturaAdapter extends RecyclerView.Adapter {
             super(itemView);
             titulo = itemView.findViewById(R.id.nombre_de_obra);
             foto_pintura = itemView.findViewById(R.id.foto_pintura);
+            Pintura pintura = listadepinturas.get(getAdapterPosition());
+            notificadorPinturaCelda.notificarPinturaClickeada(pintura);
         }
 
         public void cargarPintura(Pintura pintura) {
             titulo.setText(pintura.getName());
-            Glide.with(itemView.getContext()).load(link).into(foto_pintura);
-/// a completar con el storage
+            //para cargar la imagen de la pintura/obra instancio el firebasestorage para pedirla a traves de glide
+            FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+            StorageReference storageReference = firebaseStorage.getReference();
+            // le indico la ruta de donde buscar le imagen
+            storageReference = storageReference.child(pintura.getImage());
+
+            Glide.with(itemView.getContext())
+                    .using(new FirebaseImageLoader())
+                    .load(storageReference)
+                    .into(foto_pintura);
+
 
         }
     }
+
+    public interface NotificadorPinturaCelda {
+        void notificarPinturaClickeada(Pintura pintura);
+    }
+
 }
