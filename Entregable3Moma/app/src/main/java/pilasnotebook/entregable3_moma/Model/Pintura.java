@@ -1,18 +1,31 @@
 package pilasnotebook.entregable3_moma.Model;
 
-public class Pintura {
+import java.io.Serializable;
+
+public class Pintura implements Serializable {
 
     private String name;
     private String artistId;
     private String image;
 
+    // al ir haciendo el ejercicio me di cuenta que necesitaba ponerle como atributo
+    // un Artista para saber que ID esta clickeando en el recycler y poder sacarle los datos correctos.
+    private Artista artista;
 
-    public Pintura(String name, String artistId, String image) {
+    public Pintura(String name, String artistId, String image, Artista artista) {
         this.name = name;
         this.artistId = artistId;
         this.image = image;
+        this.artista = artista;
     }
 
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }
 
     public String getName() {
         return name;

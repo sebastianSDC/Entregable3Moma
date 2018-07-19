@@ -1,5 +1,6 @@
 package pilasnotebook.entregable3_moma.Model;
 
+import com.google.firebase.database.PropertyName;
 import com.google.gson.annotations.SerializedName;
 
 public class Artista {
@@ -7,15 +8,15 @@ public class Artista {
     private String artistId;
     private String name;
     private String nationality;
-    @SerializedName("Influenced_by")
-    private String influencia;
+   // @PropertyName("Influenced_by")
+    private String Influenced_by;
 
 
-    public Artista(String artistId, String name, String nationality, String influencia) {
+    public Artista(String artistId, String name, String nationality, String Influenced_by) {
         this.artistId = artistId;
         this.name = name;
         this.nationality = nationality;
-        this.influencia = influencia;
+        this.Influenced_by = Influenced_by;
     }
 
     public Artista(){
@@ -45,18 +46,14 @@ public class Artista {
         this.nationality = nationality;
     }
 
-    public String getInfluencia() {
-        return influencia;
+    public String getInfluenced_by() {
+        return Influenced_by;
     }
 
-    public void setInfluencia(String influencia) {
-        this.influencia = influencia;
+    public void setInfluenced_by(String Influenced_by) {
+        this.Influenced_by = Influenced_by;
     }
 
-    @Override
-    public String toString() {
-        return "Autor: " + name + " / Nacionalidad: " + nationality + " / Influencia: " + influencia;
-    }
 
     @Override
     public boolean equals(Object obj) {

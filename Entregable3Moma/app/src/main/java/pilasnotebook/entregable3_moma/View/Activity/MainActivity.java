@@ -1,5 +1,6 @@
 package pilasnotebook.entregable3_moma.View.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private PinturaAdapter pinturaAdapter;
     private PinturaController pinturaController;
-
     private Button botonLogout;
 
     @Override
@@ -44,13 +44,21 @@ public class MainActivity extends AppCompatActivity{
 
         //implemento la interface creando una clase anonima a la cual le debo implementar el metodo de dicha interface.
         pinturaAdapter.setNotificadorPinturaCelda(new PinturaAdapter.NotificadorPinturaCelda() {
+
             @Override
             public void notificarPinturaClickeada(Pintura pintura) {
-                
+                Intent intent = new Intent(MainActivity.this, DetallePinturaActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(DetallePinturaActivity.KEY_PINTURA, pintura);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
+
         });
+
+
         pinturaController = new PinturaController(this);
-        obtenerPinturasView();
+        obtenerPinturas();
 
         botonLogout = findViewById(R.id.boton_logout);
 
@@ -64,6 +72,8 @@ public class MainActivity extends AppCompatActivity{
                     }
                     //esto es para desloguearlo de firebase, ya se que entro con facebok o nativo
                     FirebaseAuth.getInstance().signOut();
+                    Intent intent= new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent);
                     onBackPressed();
                 }
             }
@@ -75,10 +85,9 @@ public class MainActivity extends AppCompatActivity{
     public void marquee(String texto) {
         textViewMarquee.setText(texto);
         textViewMarquee.setSelected(true);
-        //Toast.makeText(HomeActivity.this,texto,Toast.LENGTH_LONG).show();
     }
 
-    private void obtenerPinturasView() {
+    private void obtenerPinturas() {
         pinturaController.obtenerPinturasController(new ResultListener<List<Pintura>>() {
             @Override
             public void finish(List<Pintura> pinturas) {
@@ -86,4 +95,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
+
+
 }
+

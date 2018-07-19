@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.Activity.MainActivity" />
-        <activity android:name=".View.Activity.DetalleObraActivity"></activity>
+        <activity android:name=".View.Activity.DetallePinturaActivity"></activity>
     </application>
 
 </manifest>

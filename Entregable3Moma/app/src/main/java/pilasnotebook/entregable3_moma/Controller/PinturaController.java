@@ -21,6 +21,7 @@ public class PinturaController {
 
     public PinturaController(Context context) {
         this.context = context;
+
     }
 
 //este metodo lo uso para pedirle al dao retrofit
@@ -41,19 +42,25 @@ public class PinturaController {
     }
 
 // este metodo lo uso para pedirle al dao firebase
-    public void obtenerArtistaDelDAO(String idArtista, final ResultListener<Artista> ResultListenerDeDetalleObra) {
+    public void obtenerArtistaController(String idArtista, final ResultListener<Artista> ResultListenerDeDetallePintura) {
         if (hayInternet()) {
             ArtistaDAO artistaDAO = new ArtistaDAO();
-            artistaDAO.obtenerArtistaDeFirebase(idArtista, new ResultListener<Artista>() {
+            artistaDAO.obtenerArtistaDeDAO(idArtista, new ResultListener<Artista>() {
                 @Override
                 public void finish(Artista artista) {
-                    ResultListenerDeDetalleObra.finish(artista);
+                    ResultListenerDeDetallePintura.finish(artista);
+
+
                 }
             });
+        }else {
+            ResultListenerDeDetallePintura.finish(new Artista());
         }
     }
 
-    public boolean hayInternet() {
+
+
+        public boolean hayInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected();

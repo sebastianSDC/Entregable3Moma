@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity.DetallePinturaActivity">
+
+    <ImageView
+        android:id="@+id/foto_pinturaBig"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:layout_marginHorizontal="15dp"
+        android:src="@drawable/maxresdefault"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/titulo_pinturaBig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textAllCaps="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlanco"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/foto_pinturaBig"
+        />
+
+    <TextView
+        android:id="@+id/nombre_artista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Nombre"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="3dp"
+        android:gravity="start"
+        android:paddingHorizontal="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="condensed"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/titulo_pinturaBig"
+        />
+
+    <TextView
+        android:id="@+id/nacionalidad_artista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Nacionalidad"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="3dp"
+        android:gravity="start"
+        android:paddingHorizontal="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="condensed"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/nombre_artista"
+        />
+
+    <TextView
+        android:id="@+id/influencia_artista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Influencia"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="3dp"
+        android:gravity="start"
+        android:paddingHorizontal="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="condensed"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/nacionalidad_artista"
+        />
+
+
+</RelativeLayout>
