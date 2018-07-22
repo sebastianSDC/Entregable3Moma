@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
@@ -20,7 +19,6 @@ import java.util.List;
 
 import pilasnotebook.entregable3_moma.Model.Pintura;
 import pilasnotebook.entregable3_moma.R;
-import pilasnotebook.entregable3_moma.View.Aplication.MyAplicattion;
 
 public class PinturaAdapter extends RecyclerView.Adapter {
 
@@ -101,22 +99,24 @@ public class PinturaAdapter extends RecyclerView.Adapter {
         public void cargarPintura(Pintura pintura) {
             titulo.setText(pintura.getName());
             //para cargar la imagen de la pintura/obra instancio el firebasestorage para pedirla a traves de glide
-            //como me di cuenta que repito codigo lo transformo en un metodo para usarlo en otras activity.
             FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
             StorageReference storageReference = firebaseStorage.getReference();
             // le indico la ruta de donde buscar le imagen
             storageReference = storageReference.child(pintura.getImage());
-
             Glide.with(itemView.getContext())
                     .using(new FirebaseImageLoader())
                     .load(storageReference)
                     .into(foto_pintura);
+
+        };
+
         }
 
-    }
 
     public interface NotificadorPinturaCelda {
         void notificarPinturaClickeada(Pintura pintura);
     }
 
 }
+
+

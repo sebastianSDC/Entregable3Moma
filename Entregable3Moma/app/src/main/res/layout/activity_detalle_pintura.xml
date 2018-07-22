@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".View.Activity.DetallePinturaActivity">
 
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/foto_pinturaBig"
         android:layout_width="match_parent"
@@ -80,6 +88,8 @@
         android:background="@color/colorAccent"
         android:layout_below="@+id/nacionalidad_artista"
         />
+        </RelativeLayout>
 
+    </ScrollView>
 
 </RelativeLayout>

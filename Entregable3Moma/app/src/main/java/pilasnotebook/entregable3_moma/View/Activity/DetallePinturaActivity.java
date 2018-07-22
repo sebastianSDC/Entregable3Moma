@@ -44,7 +44,7 @@ public class DetallePinturaActivity extends AppCompatActivity {
 
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageReference = firebaseStorage.getReference();
-        // le indico la ruta de donde buscar la imagen
+        // le indico la ruta de donde buscar le imagen
         storageReference = storageReference.child(pintura.getImage());
 
         Glide.with(DetallePinturaActivity.this)
@@ -66,5 +66,7 @@ public class DetallePinturaActivity extends AppCompatActivity {
 
 
     }
+
+
 }
 

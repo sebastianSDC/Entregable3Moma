@@ -39,10 +39,6 @@ public class Pintura implements Serializable {
         return artistId;
     }
 
-    public void setArtistId(String artistId) {
-        this.artistId = artistId;
-    }
-
     public String getImage() {
         return image;
     }

@@ -26,9 +26,7 @@ public class Artista {
         return artistId;
     }
 
-    public void setArtistId(String artistId) {
-        this.artistId = artistId;
-    }
+
 
     public String getName() {
         return name;
@@ -42,18 +40,9 @@ public class Artista {
         return nationality;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
     public String getInfluenced_by() {
         return Influenced_by;
     }
-
-    public void setInfluenced_by(String Influenced_by) {
-        this.Influenced_by = Influenced_by;
-    }
-
 
     @Override
     public boolean equals(Object obj) {
